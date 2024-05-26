@@ -14,23 +14,22 @@ namespace config
     namespace image
     {
         const QString WINDOW_CURSOR = ":image/cursor.png";
-        const QString WINDOW_ICON   = ":image/icon.png";
+        const QString WINDOW_ICON = ":image/icon.png";
     }
     namespace menu
     {
-        const std::string MENU_FILE    = "文件 ";
-        const std::string MENU_EDIT    = "编辑 ";
-        const std::string MENU_VIEW    = "视图 ";
+        const std::string MENU_FILE = "文件 ";
+        const std::string MENU_EDIT = "编辑 ";
+        const std::string MENU_VIEW = "视图 ";
         const std::string MENU_SETTING = "设置 ";
-        const std::string MENU_TOOL    = "工具 ";
-        const std::string MENU_HELP    = "帮助 ";
-        const std::string MENU_ABOUT   = "关于 ";
-
+        const std::string MENU_TOOL = "工具 ";
+        const std::string MENU_HELP = "帮助 ";
+        const std::string MENU_ABOUT = "关于 ";
+        const std::string MENU_USER = "用户 ";
         namespace file
         {
             const std::string FILE_NEW = "新建 ";
             const std::string FILE_OPEN = "打开 ";
-
 
         }
         namespace edit
@@ -75,6 +74,13 @@ namespace config
         namespace about
         {
 
+        }
+        namespace user
+        {
+            const std::string USER_LOGIN = "登录 ";
+            const std::string USER_SIGNUP = "注册 ";
+            const std::string USER_CENTER = "个人中心 ";
+            const std::string USER_LOGOUT = "退出登录 ";
         }
     }
     namespace statusbar

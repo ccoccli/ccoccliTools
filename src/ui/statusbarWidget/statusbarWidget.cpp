@@ -7,7 +7,6 @@ statusbarWidget::statusbarWidget(QWidget *parent) : QStatusBar(parent)
 
 statusbarWidget::~statusbarWidget()
 {
-
 }
 
 void statusbarWidget::setColor(QWidget *widget, const QColor &color)

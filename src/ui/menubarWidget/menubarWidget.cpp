@@ -6,6 +6,7 @@ menubarWidget::menubarWidget(QWidget *parent) : QMenuBar(parent)
     initFileMenuAction();
     initViewMenuAction();
     initToolMenuAction();
+    initUserMenuAction();
 }
 
 menubarWidget::~menubarWidget()
@@ -17,11 +18,16 @@ menubarWidget::~menubarWidget()
     delete _toolMenu;
     delete _aboutMenu;
     delete _helpMenu;
+    delete _userMenu;
 
     delete _fileNew;
     delete _fileOpen;
     delete _viewStatusbar;
     delete _colorPacker;
+    delete _userLogin;
+    delete _userCenter;
+    delete _userSignup;
+    delete _userLogout;
 }
 
 void menubarWidget::initMenuBar()
@@ -33,6 +39,7 @@ void menubarWidget::initMenuBar()
     _toolMenu = addMenu(QString::fromLocal8Bit(config::menu::MENU_TOOL));
     _aboutMenu = addMenu(QString::fromLocal8Bit(config::menu::MENU_ABOUT));
     _helpMenu = addMenu(QString::fromLocal8Bit(config::menu::MENU_HELP));
+    _userMenu = addMenu(QString::fromLocal8Bit(config::menu::MENU_USER));
 }
 
 void menubarWidget::initFileMenuAction()
@@ -62,4 +69,27 @@ void menubarWidget::initToolMenuAction()
     _colorPacker->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_P));
     connect(_colorPacker, &QAction::triggered, this, [this]()
             { emit openColorPacker(); });
+}
+
+void menubarWidget::initUserMenuAction()
+{
+    _userLogin = _userMenu->addAction(QString::fromLocal8Bit(config::menu::user::USER_LOGIN));
+    _userLogin->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_L));
+    connect(_userLogin, &QAction::triggered, this, [this]()
+            { emit openUserLogin(); });
+
+    _userSignup = _userMenu->addAction(QString::fromLocal8Bit(config::menu::user::USER_SIGNUP));
+    _userSignup->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_K));
+    connect(_userSignup, &QAction::triggered, this, [this]()
+            { emit openUserSignup(); });
+
+    _userCenter = _userMenu->addAction(QString::fromLocal8Bit(config::menu::user::USER_CENTER));
+    _userCenter->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_J));
+    connect(_userCenter, &QAction::triggered, this, [this]()
+            { emit openUserCenter(); });
+
+    _userLogout = _userMenu->addAction(QString::fromLocal8Bit(config::menu::user::USER_LOGOUT));
+    _userLogout->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_H));
+    connect(_userLogout, &QAction::triggered, this, [this]()
+            { emit openUserLogout(); });
 }

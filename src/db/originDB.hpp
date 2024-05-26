@@ -12,6 +12,7 @@ public:
     ~OriginDB();
 
     void connect();
+
 private:
     QSqlDatabase _db;
     bool _connect_status;

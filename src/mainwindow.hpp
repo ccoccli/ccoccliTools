@@ -23,18 +23,18 @@ QT_END_NAMESPACE
 
 static inline void clearLayoutRecursive(QLayout *layout) noexcept
 {
-    if(!layout)
+    if (!layout)
     {
         return;
     }
     QLayoutItem *child;
-    while((child = layout->takeAt(0)) != nullptr)
+    while ((child = layout->takeAt(0)) != nullptr)
     {
-        if(child->widget())
+        if (child->widget())
         {
             delete child->widget();
         }
-        else if(QLayout *childLayout = child->layout())
+        else if (QLayout *childLayout = child->layout())
         {
             clearLayoutRecursive(childLayout);
             delete childLayout;
@@ -55,6 +55,7 @@ private:
     void initSystemDatabase();
 
     void initMenubarCallback();
+
 private:
     Ui::MainWindow *ui;
 

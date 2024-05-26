@@ -30,8 +30,9 @@ private:
     void getCurrentValue();
     void saveCurrentValue();
 
-    void setColor(QWidget *widget, const QColor& color);
-    void setColor(QWidget *widget, const QString& hexColor);
+    void setColor(QWidget *widget, const QColor &color);
+    void setColor(QWidget *widget, const QString &hexColor);
+
 private:
     QTableWidget *_table;
     QLabel *_colorBlock;

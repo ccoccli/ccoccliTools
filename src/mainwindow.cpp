@@ -63,7 +63,19 @@ void MainWindow::initMenubarCallback()
     connect(_menubar, &menubarWidget::openViewStatusbar, this, [=]() {
 
     });
-    connect(_menubar, &menubarWidget::openColorPacker, this, [=]() {
-        this->setCentralWidget(new colorPackerWidget()); 
+    connect(_menubar, &menubarWidget::openColorPacker, this, [=]()
+            { this->setCentralWidget(new colorPackerWidget()); });
+
+    connect(_menubar, &menubarWidget::openUserLogin, this, [=]() {
+
+    });
+    connect(_menubar, &menubarWidget::openUserCenter, this, [=]() {
+
+    });
+    connect(_menubar, &menubarWidget::openUserSignup, this, [=]() {
+
+    });
+    connect(_menubar, &menubarWidget::openUserLogout, this, [=]() {
+
     });
 }

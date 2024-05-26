@@ -7,7 +7,7 @@ colorPackerWidget::colorPackerWidget(QWidget *parent) : m_hex(config::menu::tool
                                                         m_b(config::menu::tool::colorPacker::DEFAULT_COLOR_B),
                                                         _color_packer_table_current_index(0)
 {
-    //this->setFixedSize(QSize(QGuiApplication::primaryScreen()->size().width() / 2, QGuiApplication::primaryScreen()->size().height() / 2));
+    // this->setFixedSize(QSize(QGuiApplication::primaryScreen()->size().width() / 2, QGuiApplication::primaryScreen()->size().height() / 2));
     initLayout();
     initAction();
 }
