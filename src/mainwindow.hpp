@@ -28,6 +28,8 @@ public:
 private:
     void initSystemSetting();
     void initSystemDatabase();
+
+    void initMenubarCallback();
 private:
     Ui::MainWindow *ui;
 
