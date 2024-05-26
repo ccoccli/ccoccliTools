@@ -49,6 +49,24 @@ namespace config
         namespace tool
         {
             const std::string TOOL_COLOR_PACKER = "取色器 ";
+            namespace colorPacker
+            {
+                const int COLOR_PACKER_PACKLIST_COLUMN_NUM = 3;
+                const int COLOR_PACKER_PACKLIST_HEIGHT = 20;
+                const std::string COLOR_PACKER_TITLE = "当前颜色 ";
+                const std::string COLOR_PACKER_PACKLIST_TITLE = "颜色提取记录 ";
+                const QString COLOR_PACKER_PACKLIST_HEAD_RGB = "RGB";
+                const QString COLOR_PACKER_PACKLIST_HEAD_ARGB = "ARGB";
+                const QString COLOR_PACKER_PACKLIST_HEAD_HEX = "HEX";
+
+                const QString DEFAULT_COLOR_HEX = "0xffffff";
+                const unsigned int DEFAULT_COLOR_A = 0;
+                const unsigned int DEFAULT_COLOR_R = 0;
+                const unsigned int DEFAULT_COLOR_G = 0;
+                const unsigned int DEFAULT_COLOR_B = 0;
+
+                const QString DEFAULT_COLOR_BLOCK_CLOR = "white";
+            }
         }
         namespace help
         {
@@ -58,5 +76,9 @@ namespace config
         {
 
         }
+    }
+    namespace statusbar
+    {
+        const QString DEFAULT_BACKGROUND_COLOR = "white";
     }
 }

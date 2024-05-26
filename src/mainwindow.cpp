@@ -21,7 +21,7 @@ void MainWindow::initSystemSetting()
 {
     _menubar = new menubarWidget();
     initMenubarCallback();
-    
+
     _statusbar = new statusbarWidget();
 
     this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint);
@@ -32,6 +32,10 @@ void MainWindow::initSystemSetting()
     this->setWindowTitle(QString::fromLocal8Bit(config::WINDOW_TITLE));
     this->setWindowIcon(QIcon(config::image::WINDOW_ICON));
     this->setCursor(QCursor(QPixmap(config::image::WINDOW_CURSOR).scaled(QSize(16, 16))));
+
+    //_centerWidget = new QWidget(this);
+
+    // this->setCentralWidget(_centerWidget);
 }
 
 void MainWindow::initSystemDatabase()
@@ -60,6 +64,6 @@ void MainWindow::initMenubarCallback()
 
     });
     connect(_menubar, &menubarWidget::openColorPacker, this, [=]() {
-
+        this->setCentralWidget(new colorPackerWidget()); 
     });
 }
