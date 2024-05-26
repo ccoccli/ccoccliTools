@@ -5,6 +5,8 @@
 │   └── image
 └── src
     ├── db
+    ├── tool
+    │   └── colorPacker
     └── ui
         ├── menubarWidget
         └── statusbarWidget
@@ -14,6 +16,8 @@
     - 图片资源
 - src 源码文件
     - src/db 数据库
+    - src/tool 工具
+        - src/tool/colorPacker 取色器
     - src/ui ui界面
         - src/db/menubarWidget 菜单栏
         - src/db/statusbarWidget 状态栏
