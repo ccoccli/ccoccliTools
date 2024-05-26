@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "qsqlerror": "cpp",
+        "qsqlquery": "cpp",
+        "qguiapplication": "cpp",
+        "qmenubar": "cpp"
+    }
+}

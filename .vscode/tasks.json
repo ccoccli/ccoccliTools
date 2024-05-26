@@ -1,0 +1,57 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "qmake",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "~/Documents/Qt6.7.1/6.7.1/gcc_64/bin/qmake",
+            "args": [
+                "../*.pro"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "make",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "command": "make",
+            "args": [
+                "-j16"
+            ],
+            "dependsOn": []
+        },
+        {
+            "label": "clean",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "run",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "${workspaceFolderBasename}",
+            "args": [
+                ""
+            ],
+            "dependsOn": [
+                "make"
+            ],
+            "problemMatcher": []
+        }
+    ],
+    "version": "2.0.0"
+}
