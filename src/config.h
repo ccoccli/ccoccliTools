@@ -12,7 +12,7 @@ namespace config
     const std::string WINDOW_MSGBOX_ERROR_TITLE = "错误 ";
 
     const unsigned int SYTEM_MAX_RANDOM_BYTES_NUM = 40;
-    
+
     namespace database
     {
         const QString SYSTEMINFO_USER_DATABASE = "userInfo.db";
@@ -109,6 +109,31 @@ namespace config
             const std::string USER_NOT_LOGIN_1 = "用户未登录，请先登录再操作。 ";
             const std::string USER_NOT_LOGIN_2 = "用户未登录，无需退出登录操作。 ";
             const std::string USER_HAS_LOGINED = "用户已登录，请勿重复操作。 ";
+            const std::string USER_HAS_NONEED_SIGNUP = "用户已登录，无需注册 ";
+
+            namespace login
+            {
+                const std::string LOGIN_USERNAME = "用户名 ";
+                const std::string LOGIN_PASSWORD = "密码 ";
+                const std::string LOGIN_LOGIN = "登录 ";
+                const std::string LOGIN_FORGET_PASSWORD = "忘记密码 ";
+                const std::string LOGIN_SINGNUP = "注册 ";
+
+                const std::string LOGIN_INPUT_USERNAME = "请输入用户名 ";
+                const std::string LOGIN_INPUT_PASSWORD = "请输入密码 ";
+
+                const unsigned int LOGIN_COMPONENT_HEIGHT = 50;
+                const unsigned int LOGIN_LAYOUT_PADDING = 30;
+                const unsigned int LOGIN_LABEL_WIDTH = 100;
+
+                const unsigned int LOGIN_FONT_SIZE = 12;
+
+                const std::string LOGIN_BUTTON_FG = "#FFFFFF";
+                const std::string LOGIN_BUTTON_BG = "#4CAF50";
+
+                const std::string LOGIN_BUTTON_HOVER_STYLE = "QPushButton:hover { background-color: #388E3C; }";
+
+            }
         }
     }
     namespace statusbar

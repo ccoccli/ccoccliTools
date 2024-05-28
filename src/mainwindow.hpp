@@ -18,7 +18,6 @@
 
 #include "config.h"
 
-#include "db/originDB.hpp"
 #include "ui/menubarWidget/menubarWidget.hpp"
 #include "ui/statusbarWidget/statusbarWidget.hpp"
 #include "ui/user/loginWidget/loginWidget.hpp"
@@ -91,11 +90,9 @@ private:
 
 private:
     Ui::MainWindow *ui;
-
-    QWidget *_centerWidget;
+    
     menubarWidget *_menubar;
     statusbarWidget *_statusbar;
-    OriginDB *_systemDB;
 
-    bool _userLoginStatus;
+    loginWidget *_login;
 };

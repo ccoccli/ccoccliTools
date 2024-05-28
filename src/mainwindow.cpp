@@ -1,7 +1,7 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow), _userLoginStatus(false)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow), _login(new loginWidget)
 {
     ui->setupUi(this);
 
@@ -14,7 +14,6 @@ MainWindow::~MainWindow()
     delete ui;
     delete _menubar;
     delete _statusbar;
-    delete _systemDB;
 }
 
 void MainWindow::initSystemSetting()
@@ -35,16 +34,7 @@ void MainWindow::initSystemSetting()
 
 void MainWindow::initSystemDatabase()
 {
-    // init user info sqlite database
-    try
-    {
-        _systemDB = new OriginDB(config::database::SYSTEMINFO_USER_DATABASE);
-        _systemDB->connect();
-    }
-    catch (const std::runtime_error &e)
-    {
-        qDebug() << "Error : " << e.what();
-    }
+
 #if 0
     QList<QVariantMap> results;
     if(_systemDB->query(OriginDB::DB_QUERY_TYPE::QUERY_SELECT, "select * from users where username = 'ccoccli';", &results))
@@ -80,34 +70,38 @@ void MainWindow::initMenubarCallback()
     });
     connect(_menubar, &menubarWidget::openColorPacker, this, [=]()
             { 
-        if(!_userLoginStatus)
+        if(!_login->getLoginStatus())
             staticFunc::info(this, QString::fromStdString(config::menu::user::USER_NOT_LOGIN_1));
         else
             this->setCentralWidget(new colorPackerWidget()); });
 
     connect(_menubar, &menubarWidget::openUserLogin, this, [=]()
             {
-        if(_userLoginStatus)
+        if(_login->getLoginStatus())
             staticFunc::info(this, QString::fromStdString(config::menu::user::USER_HAS_LOGINED));
         else
         {
-            this->setCentralWidget(new loginWidget());
+            this->setCentralWidget(_login);
         } });
     connect(_menubar, &menubarWidget::openUserCenter, this, [=]()
             {
-        if(!_userLoginStatus)
+        if(!_login->getLoginStatus())
             staticFunc::info(this, QString::fromStdString(config::menu::user::USER_NOT_LOGIN_1));
         else
         {
             this->setCentralWidget(new userCenterWidget());
         } });
     connect(_menubar, &menubarWidget::openUserSignup, this, [=]() {
+        #if 0
+        if(!_login->getLoginStatus())
+            staticFunc::info(this, QString::fromStdString(config::menu::user::USER_HAS_NONEED_SIGNUP));
+        else
             this->setCentralWidget(new signupWidget());
-
+            #endif
     });
     connect(_menubar, &menubarWidget::openUserLogout, this, [=]()
             {
-        if(!_userLoginStatus)
+        if(!_login->getLoginStatus())
             staticFunc::info(this, QString::fromStdString(config::menu::user::USER_NOT_LOGIN_2));
         else
         {
@@ -115,7 +109,7 @@ void MainWindow::initMenubarCallback()
         } });
     connect(_menubar, &menubarWidget::openCodeStatisticsCAndCPP, this, [=]()
             {
-        if(!_userLoginStatus)
+        if(!_login->getLoginStatus())
             staticFunc::info(this, QString::fromStdString(config::menu::user::USER_NOT_LOGIN_1));
         else
         {
@@ -123,7 +117,7 @@ void MainWindow::initMenubarCallback()
         } });
     connect(_menubar, &menubarWidget::openCodeStatisticsJava, this, [=]()
             {
-        if(!_userLoginStatus)
+        if(!_login->getLoginStatus())
             staticFunc::info(this, QString::fromStdString(config::menu::user::USER_NOT_LOGIN_1));
         else
         {
@@ -131,7 +125,7 @@ void MainWindow::initMenubarCallback()
         } });
     connect(_menubar, &menubarWidget::openCodeStatisticsPython, this, [=]()
             {
-        if(!_userLoginStatus)
+        if(!_login->getLoginStatus())
             staticFunc::info(this, QString::fromStdString(config::menu::user::USER_NOT_LOGIN_1));
         else
         {
@@ -139,7 +133,7 @@ void MainWindow::initMenubarCallback()
         } });
     connect(_menubar, &menubarWidget::openCodeStatisticsAssembly, this, [=]()
             {
-        if(!_userLoginStatus)
+        if(!_login->getLoginStatus())
             staticFunc::info(this, QString::fromStdString(config::menu::user::USER_NOT_LOGIN_1));
         else
         {

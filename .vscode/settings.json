@@ -84,7 +84,14 @@
         "xstddef": "cpp",
         "xtree": "cpp",
         "xutility": "cpp",
-        "qfiledialog": "cpp"
+        "qfiledialog": "cpp",
+        "qhboxlayout": "cpp",
+        "qgridlayout": "cpp",
+        "qlineedit": "cpp",
+        "qpushbutton": "cpp",
+        "qmessagebox": "cpp",
+        "qcryptographichash": "cpp",
+        "qlayoutitem": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
