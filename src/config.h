@@ -11,6 +11,8 @@ namespace config
     const std::string WINDOW_MSGBOX_WARN_TITLE = "警告 ";
     const std::string WINDOW_MSGBOX_ERROR_TITLE = "错误 ";
 
+    const unsigned int SYTEM_MAX_RANDOM_BYTES_NUM = 40;
+    
     namespace database
     {
         const QString SYSTEMINFO_USER_DATABASE = "userInfo.db";
@@ -111,6 +113,6 @@ namespace config
     }
     namespace statusbar
     {
-        const QString DEFAULT_BACKGROUND_COLOR = "white";
+        const QString DEFAULT_BACKGROUND_COLOR = "gray";
     }
 }

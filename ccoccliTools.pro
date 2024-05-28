@@ -1,8 +1,9 @@
-QT += core gui sql widgets
+QT += core gui sql widgets xml
 
 CONFIG += c++17
 
 INCLUDEPATH += $$PWD/src
+
 SOURCES += $$files($$INCLUDEPATH/*.cpp, true)
 HEADERS += $$files($$INCLUDEPATH/*.hpp, true)
 

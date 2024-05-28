@@ -1,17 +1,29 @@
 #pragma once
 
+#include <QFile>
+#include <QList>
 #include <QScreen>
 #include <QLayout>
+#include <QTextStream>
+#include <QVariantMap>
 #include <QMessageBox>
 #include <QMainWindow>
 #include <QLayoutItem>
 #include <QGuiApplication>
+#include <QCoreApplication>
+#include <QProcess>
+#include <QString>
+#include <QByteArray>
+#include <QCryptographicHash>
 
 #include "config.h"
 
 #include "db/originDB.hpp"
 #include "ui/menubarWidget/menubarWidget.hpp"
 #include "ui/statusbarWidget/statusbarWidget.hpp"
+#include "ui/user/loginWidget/loginWidget.hpp"
+#include "ui/user/signupWidget/signupWidget.hpp"
+#include "ui/user/userCenterWidget/userCenterWidget.hpp"
 
 #include "tool/colorPacker/colorPackerWidget.hpp"
 #include "tool/codeStatistics/codeStatisticsWidget.hpp"
@@ -57,11 +69,15 @@ namespace staticFunc
     {
         QMessageBox::warning(parent, QString::fromStdString(config::WINDOW_MSGBOX_ERROR_TITLE), msg);
     }
+    static inline QString generateRandomHash(const QString &input) 
+    {
+        return QCryptographicHash::hash(input.toUtf8(), QCryptographicHash::Sha256).toHex().left(config::SYTEM_MAX_RANDOM_BYTES_NUM);
+    }
 }
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+    Q_OBJECT 
 
 public:
     MainWindow(QWidget *parent = nullptr);

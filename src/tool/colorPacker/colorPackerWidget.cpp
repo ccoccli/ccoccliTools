@@ -20,11 +20,11 @@ colorPackerWidget::~colorPackerWidget()
 
 void colorPackerWidget::initLayout()
 {
-    auto colorLabelTitle = new QLabel(QString::fromLocal8Bit(config::menu::tool::colorPacker::COLOR_PACKER_TITLE));
+    auto colorLabelTitle = new QLabel(QString::fromStdString(config::menu::tool::colorPacker::COLOR_PACKER_TITLE));
     _colorBlock = new QLabel(this);
     auto leftLayout = new QVBoxLayout;
     auto rightLayout = new QVBoxLayout;
-    auto colorPackListTitle = new QLabel(QString::fromLocal8Bit(config::menu::tool::colorPacker::COLOR_PACKER_PACKLIST_TITLE));
+    auto colorPackListTitle = new QLabel(QString::fromStdString(config::menu::tool::colorPacker::COLOR_PACKER_PACKLIST_TITLE));
     _table = new QTableWidget;
     QStringList tableHead;
     auto centerLayout = new QHBoxLayout;
