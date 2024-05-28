@@ -35,3 +35,12 @@
             - src/ui/user/loginWidget 登录
             - src/ui/user/signupWidget 注册
             - src/ui/user/userCenterWidget 用户中心
+# 2.演示图
+- 主界面
+![alt text](./res/image/readme/image.png)
+- 登录
+![alt text](./res/image/readme/image-1.png)
+- 取色器
+![alt text](./res/image/readme/image-2.png)
+- 代码统计
+![alt text](./res/image/readme/image-3.png)
