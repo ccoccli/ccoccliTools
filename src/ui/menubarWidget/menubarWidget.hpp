@@ -29,9 +29,15 @@ signals:
     void openUserCenter();
     void openUserSignup();
     void openUserLogout();
+    void openCodeStatisticsCAndCPP();
+    void openCodeStatisticsJava();
+    void openCodeStatisticsPython();
+    void openCodeStatisticsAssembly();
 
 private:
     QMenu *_fileMenu, *_EditMenu, *_viewMenu, *_settingMenu, *_toolMenu, *_helpMenu, *_aboutMenu, *_userMenu;
+
+    QMenu *_codeStatistics;
 
     QAction *_fileNew, *_fileOpen;
 
@@ -40,4 +46,6 @@ private:
     QAction *_colorPacker;
 
     QAction *_userLogin, *_userCenter, *_userSignup, *_userLogout;
+
+    QAction *_codeStatisticsCAndCPlusPlus, *_codeStatisticsJava, *_codeStatisticsPython, *_codeStatisticsAssembly;
 };

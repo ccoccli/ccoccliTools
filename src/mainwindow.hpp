@@ -2,6 +2,7 @@
 
 #include <QScreen>
 #include <QLayout>
+#include <QMessageBox>
 #include <QMainWindow>
 #include <QLayoutItem>
 #include <QGuiApplication>
@@ -13,6 +14,7 @@
 #include "ui/statusbarWidget/statusbarWidget.hpp"
 
 #include "tool/colorPacker/colorPackerWidget.hpp"
+#include "tool/codeStatistics/codeStatisticsWidget.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -21,24 +23,39 @@ namespace Ui
 }
 QT_END_NAMESPACE
 
-static inline void clearLayoutRecursive(QLayout *layout) noexcept
+namespace staticFunc
 {
-    if (!layout)
+    static inline void clearLayoutRecursive(QLayout *layout) noexcept
     {
-        return;
+        if (!layout)
+        {
+            return;
+        }
+        QLayoutItem *child;
+        while ((child = layout->takeAt(0)) != nullptr)
+        {
+            if (child->widget())
+            {
+                delete child->widget();
+            }
+            else if (QLayout *childLayout = child->layout())
+            {
+                clearLayoutRecursive(childLayout);
+                delete childLayout;
+            }
+        }
     }
-    QLayoutItem *child;
-    while ((child = layout->takeAt(0)) != nullptr)
+    static inline void info(QWidget *parent, QString msg)
     {
-        if (child->widget())
-        {
-            delete child->widget();
-        }
-        else if (QLayout *childLayout = child->layout())
-        {
-            clearLayoutRecursive(childLayout);
-            delete childLayout;
-        }
+        QMessageBox::information(parent, QString::fromStdString(config::WINDOW_MSGBOX_INFO_TITLE), msg);
+    }
+    static inline void warn(QWidget *parent, QString msg)
+    {
+        QMessageBox::warning(parent, QString::fromStdString(config::WINDOW_MSGBOX_WARN_TITLE), msg);
+    }
+    static inline void error(QWidget *parent, QString msg)
+    {
+        QMessageBox::warning(parent, QString::fromStdString(config::WINDOW_MSGBOX_ERROR_TITLE), msg);
     }
 }
 
@@ -63,4 +80,6 @@ private:
     menubarWidget *_menubar;
     statusbarWidget *_statusbar;
     OriginDB *_systemDB;
+
+    bool _userLoginStatus;
 };

@@ -7,9 +7,13 @@ namespace config
 {
     const std::string WINDOW_TITLE = "超级工具 ";
 
+    const std::string WINDOW_MSGBOX_INFO_TITLE = "提示 ";
+    const std::string WINDOW_MSGBOX_WARN_TITLE = "警告 ";
+    const std::string WINDOW_MSGBOX_ERROR_TITLE = "错误 ";
+
     namespace database
     {
-        const QString SYSTEMINFO_DATABASE = "systemInfo.db";
+        const QString SYSTEMINFO_USER_DATABASE = "userInfo.db";
     }
     namespace image
     {
@@ -48,6 +52,7 @@ namespace config
         namespace tool
         {
             const std::string TOOL_COLOR_PACKER = "取色器 ";
+            const std::string TOOL_CODE_STATISTICS = "代码统计 ";
             namespace colorPacker
             {
                 const int COLOR_PACKER_PACKLIST_COLUMN_NUM = 3;
@@ -66,6 +71,23 @@ namespace config
 
                 const QString DEFAULT_COLOR_BLOCK_CLOR = "white";
             }
+            namespace codeStatistics
+            {
+                const std::string CODESTATISTICS_DIRECTOR_DIALOG_TITLE = "请选择文件夹 ";
+                const std::string CODESTATISTICS_C_CPP = "C/C++";
+                const std::string CODESTATISTICS_JAVA = "Java";
+                const std::string CODESTATISTICS_PYTHON = "Python";
+                const std::string CODESTATISTICS_ASSEMBLY = "Assembly";
+
+                const std::string CODESTATISTICS_RESULT_TABLE_TITLE = "统计结果 ";
+
+                const std::string CODESTATISTICS_RESULT_TABLE_HEAD_1 = "路径 ";
+                const std::string CODESTATISTICS_RESULT_TABLE_HEAD_2 = "行数 ";
+                const std::string CODESTATISTICS_RESULT_TABLE_HEAD_3 = "大小 ";
+
+                const unsigned int CODESTATISTICS_RESULT_TABLE_COLUMN_NUM = 3;
+                const int CODESTATISTICS_RESULT_TABLE_HEIGHT = 20;
+            }
         }
         namespace help
         {
@@ -81,6 +103,10 @@ namespace config
             const std::string USER_SIGNUP = "注册 ";
             const std::string USER_CENTER = "个人中心 ";
             const std::string USER_LOGOUT = "退出登录 ";
+
+            const std::string USER_NOT_LOGIN_1 = "用户未登录，请先登录再操作。 ";
+            const std::string USER_NOT_LOGIN_2 = "用户未登录，无需退出登录操作。 ";
+            const std::string USER_HAS_LOGINED = "用户已登录，请勿重复操作。 ";
         }
     }
     namespace statusbar
