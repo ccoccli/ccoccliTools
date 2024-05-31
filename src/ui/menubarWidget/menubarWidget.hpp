@@ -11,7 +11,7 @@ class menubarWidget : public QMenuBar
 {
     Q_OBJECT
 public:
-    menubarWidget(QWidget *parent = nullptr);
+    menubarWidget( QWidget *parent = nullptr );
     ~menubarWidget();
 
 private:

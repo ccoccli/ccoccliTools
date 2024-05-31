@@ -37,10 +37,10 @@ class codeStatisticsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    codeStatisticsWidget(QWidget *parent = nullptr, CODE_TYPE pType = CODE_TYPE::CANDCPP);
+    codeStatisticsWidget( QWidget *parent = nullptr, CODE_TYPE pType = CODE_TYPE::CANDCPP );
     ~codeStatisticsWidget();
 
-    void traverseAndCollectFileInfo(const fs::path &directory, std::vector<FileInfo> &files);
+    void traverseAndCollectFileInfo( const fs::path &directory, std::vector<FileInfo> &files );
 
 private:
     CODE_TYPE _type;

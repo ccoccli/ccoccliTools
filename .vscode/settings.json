@@ -93,5 +93,38 @@
         "qcryptographichash": "cpp",
         "qlayoutitem": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    
+    "astyle.additional_languages": [
+        "c",
+        "cpp",
+        "*.h",
+        "*.hpp",
+        "*.cc",
+        "*.cxx",
+        "*.hh",
+        "*.C"
+    ],
+    "astyle.cmd_options": [
+        "--style=allman",           // 使用Allman风格
+        "--indent=spaces=4",        // 缩进2格
+        "--indent-preproc-block",   // 缩进预处理块
+        "--pad-oper",               // 操作符两端插入一个空格
+        "--pad-header",             // 在头部插入空格
+        "--unpad-paren",            // 移除括号两端多余空格
+        "--suffix=none",            // 不生成备份文件
+        "--align-pointer=name",     // 指针对齐到变量名
+        "--lineend=linux",          // 使用Linux行尾
+        "--convert-tabs",           // TAB转换为空格
+        "--verbose",                // 显示详细处理信息
+        "--delete-empty-lines",     // 删除多余空行
+        "--pad-paren-in",           // 括号内部加入空格
+        "--remove-braces",          // 移除单行if语句的花括号
+    ],
+    "astyle.executable": "C:\\astyle.exe",
+    "files.associations": {
+        "unistd.h": "c",
+        "xstddef": "c",
+        "stdbool.h": "c"
+    }
 }

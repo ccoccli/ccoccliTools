@@ -20,11 +20,11 @@ public:
 
 public:
     OriginDB() = delete;
-    OriginDB(const QString &pDBName);
+    OriginDB( const QString &pDBName );
     ~OriginDB();
 
     void connect();
-    bool query(const DB_QUERY_TYPE& pType, const std::string& pCommand, void *data);
+    bool query( const DB_QUERY_TYPE &pType, const std::string &pCommand, void *data );
 private:
     QSqlDatabase _db;
     bool _connect_status;

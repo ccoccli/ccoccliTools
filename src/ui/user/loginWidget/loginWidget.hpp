@@ -17,11 +17,14 @@ class loginWidget : public QWidget
 {
     Q_OBJECT
 public:
-    loginWidget(QWidget *parent = nullptr);
+    loginWidget( QWidget *parent = nullptr );
     ~loginWidget();
 
 public:
-    bool getLoginStatus() { return _userLoginStatus; }
+    bool getLoginStatus()
+    {
+        return _userLoginStatus;
+    }
 
 private:
     void initLayout();

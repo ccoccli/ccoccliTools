@@ -10,17 +10,17 @@
 #include <openssl/aes.h>
 #include <openssl/rand.h>
 
-class AESCipher 
+class AESCipher
 {
 public:
-    AESCipher(const QByteArray &key) 
+    AESCipher(const QByteArray &key)
     {
         Q_ASSERT(key.size() == 32);
         encryptionKey = key;
         RAND_bytes(iv, AES_BLOCK_SIZE);
     }
 
-    QByteArray encrypt(const QByteArray &plaintext) 
+    QByteArray encrypt(const QByteArray &plaintext)
     {
         EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
         EVP_EncryptInit_ex(ctx, EVP_aes_256_cbc(), NULL, reinterpret_cast<const unsigned char*>(encryptionKey.data()), iv);
@@ -44,9 +44,9 @@ public:
         return ivAndCiphertext;
     }
 
-    QByteArray decrypt(const QByteArray &ciphertext) 
+    QByteArray decrypt(const QByteArray &ciphertext)
     {
-        if (ciphertext.size() < AES_BLOCK_SIZE) 
+        if (ciphertext.size() < AES_BLOCK_SIZE)
         {
             return QByteArray();
         }

@@ -8,6 +8,6 @@ class userCenterWidget : public QWidget
 {
     Q_OBJECT
 public:
-    userCenterWidget(QWidget *parent = nullptr);
+    userCenterWidget( QWidget *parent = nullptr );
     ~userCenterWidget();
 };
